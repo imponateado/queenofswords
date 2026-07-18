@@ -1,0 +1,614 @@
+{
+  "@@locale": "en",
+  "appTitle": "Queen of Swords",
+  "@appTitle": {
+    "description": "The application's display name."
+  },
+
+  "homeTitle": "Tarot",
+  "@homeTitle": {
+    "description": "Title shown on the home screen's app bar, drawer header, and hero heading."
+  },
+  "historyTitle": "History",
+  "@historyTitle": {
+    "description": "Title for the reading history screen, also used as the drawer navigation item label."
+  },
+  "aboutTarotTitle": "About Tarot",
+  "@aboutTarotTitle": {
+    "description": "Title for the About Tarot screen, also used as the drawer navigation item label."
+  },
+  "cardEncyclopediaTitle": "Card Encyclopedia",
+  "@cardEncyclopediaTitle": {
+    "description": "Title for the card encyclopedia screen, also used as the drawer navigation item label."
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Title for the settings screen."
+  },
+  "spreadSelectionTitle": "Choose a reading type",
+  "@spreadSelectionTitle": {
+    "description": "Title for the spread selection screen."
+  },
+  "newReadingButton": "New reading",
+  "@newReadingButton": {
+    "description": "Button label to start a new reading (home screen hero button, and the button offered after finishing a reading)."
+  },
+  "homeSubtitle": "Draw a card, explore a path, or do a full reading.",
+  "@homeSubtitle": {
+    "description": "Subtitle text under the hero heading on the home screen."
+  },
+  "closeButton": "Close",
+  "@closeButton": {
+    "description": "Generic dialog close button label."
+  },
+  "saveButton": "Save",
+  "@saveButton": {
+    "description": "Generic save button label."
+  },
+  "removeButton": "Remove",
+  "@removeButton": {
+    "description": "Generic remove/delete button label."
+  },
+
+  "aboutTarotHeading1": "A card game, first",
+  "@aboutTarotHeading1": {
+    "description": "First section heading on the About Tarot screen."
+  },
+  "aboutTarotBody1": "Tarot was born in 15th-century Italy as an ordinary trick-taking card game, tarocchi, played by noble families like the Visconti-Sforza — some of the oldest surviving decks were commissioned by them, hand-painted. At the time there was nothing esoteric about it: it was a card game, similar in spirit to bridge.",
+  "@aboutTarotBody1": {
+    "description": "First section body text on the About Tarot screen."
+  },
+  "aboutTarotHeading2": "The mystical turn",
+  "@aboutTarotHeading2": {
+    "description": "Second section heading on the About Tarot screen."
+  },
+  "aboutTarotBody2": "The association with the occult came much later, at the end of the 18th century, when the French occultist Antoine Court de Gébelin spread the idea — with no real historical basis — that tarot came from Ancient Egypt and the Book of Thoth. The legend caught on, even though it was false.",
+  "@aboutTarotBody2": {
+    "description": "Second section body text on the About Tarot screen."
+  },
+  "aboutTarotHeading3": "The esoteric systemization",
+  "@aboutTarotHeading3": {
+    "description": "Third section heading on the About Tarot screen."
+  },
+  "aboutTarotBody3": "In the 19th century, the Golden Dawn — an English esoteric order — established tarot as a divination and magical symbolism tool, building much of the system of correspondences (elements, astrology, kabbalah) still used today.",
+  "@aboutTarotBody3": {
+    "description": "Third section body text on the About Tarot screen."
+  },
+  "aboutTarotHeading4": "The deck that became the standard",
+  "@aboutTarotHeading4": {
+    "description": "Fourth section heading on the About Tarot screen."
+  },
+  "aboutTarotBody4": "In 1909 the Rider-Waite-Smith deck was published, illustrated by Pamela Colman Smith under the direction of Arthur Edward Waite. It gave each of the 78 cards — not just the 22 of the major arcana — an illustrated scene with its own meaning, which made it far easier to read than earlier decks. That's the visual and symbolic standard this app follows, and the one most modern apps and decks still use today.",
+  "@aboutTarotBody4": {
+    "description": "Fourth section body text on the About Tarot screen."
+  },
+
+  "cardUprightSectionTitle": "Upright",
+  "@cardUprightSectionTitle": {
+    "description": "Section title on the card detail screen for the upright keywords/meaning."
+  },
+  "cardReversedSectionTitle": "Reversed",
+  "@cardReversedSectionTitle": {
+    "description": "Section title on the card detail screen for the reversed keywords/meaning."
+  },
+  "majorArcanaLabel": "Major Arcana",
+  "@majorArcanaLabel": {
+    "description": "Singular label identifying a card as part of the Major Arcana, shown on the card detail screen."
+  },
+  "minorArcanaLabel": "Minor Arcana",
+  "@minorArcanaLabel": {
+    "description": "Singular label identifying a card as part of the Minor Arcana, shown on the card detail screen."
+  },
+  "majorArcanaSectionTitle": "Major Arcana",
+  "@majorArcanaSectionTitle": {
+    "description": "Section header (plural form) grouping the Major Arcana cards in the card encyclopedia list."
+  },
+
+  "suitWands": "Wands",
+  "@suitWands": {
+    "description": "Name of the Wands suit."
+  },
+  "suitCups": "Cups",
+  "@suitCups": {
+    "description": "Name of the Cups suit."
+  },
+  "suitSwords": "Swords",
+  "@suitSwords": {
+    "description": "Name of the Swords suit."
+  },
+  "suitPentacles": "Pentacles",
+  "@suitPentacles": {
+    "description": "Name of the Pentacles suit."
+  },
+
+  "searchCardLabel": "Search for a card",
+  "@searchCardLabel": {
+    "description": "Label/hint text for the card search field on the encyclopedia screen."
+  },
+
+  "clearHistoryTooltip": "Clear history",
+  "@clearHistoryTooltip": {
+    "description": "Tooltip for the icon button that clears all reading history."
+  },
+  "historyEmptyState": "No readings saved yet.",
+  "@historyEmptyState": {
+    "description": "Empty state message shown when there is no reading history."
+  },
+  "historyNoAiInterpretation": "No AI interpretation saved for this reading.",
+  "@historyNoAiInterpretation": {
+    "description": "Fallback text shown in the history detail dialog when a reading has no saved AI interpretation."
+  },
+
+  "revealCardsButton": "Reveal cards",
+  "@revealCardsButton": {
+    "description": "Button label to reveal the drawn cards during a reading."
+  },
+  "significatorChooseCardPrompt": "Choose a card to represent you in this reading.",
+  "@significatorChooseCardPrompt": {
+    "description": "Prompt shown during the significator card selection step."
+  },
+  "significatorCardChosen": "Your representative card: {cardName}",
+  "@significatorCardChosen": {
+    "description": "Shown after the user picks their significator card, naming the chosen card.",
+    "placeholders": {
+      "cardName": {
+        "type": "String",
+        "example": "The Fool"
+      }
+    }
+  },
+  "cleansingRitualPrompt": "Tap the deck 3 times to clear the energies before shuffling.",
+  "@cleansingRitualPrompt": {
+    "description": "Prompt shown during the deck cleansing ritual step."
+  },
+  "cleansingTapsCounter": "{taps} / 3",
+  "@cleansingTapsCounter": {
+    "description": "Counter showing how many of the 3 required cleansing taps have been made.",
+    "placeholders": {
+      "taps": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "shuffleIntroPrompt": "Focus on your question and shuffle when you're ready.",
+  "@shuffleIntroPrompt": {
+    "description": "Prompt shown before shuffling, inviting the user to focus on their question."
+  },
+  "questionInputLabel": "What is your question?",
+  "@questionInputLabel": {
+    "description": "Label for the text field where the user types their question before a reading."
+  },
+  "shuffleButton": "Shuffle",
+  "@shuffleButton": {
+    "description": "Button label to begin the shuffle/draw."
+  },
+  "shufflingIndicatorText": "Shuffling...",
+  "@shufflingIndicatorText": {
+    "description": "Label shown under the shuffle animation while the cards are being drawn."
+  },
+  "randomSourceRandomOrg": "Shuffled with true randomness from random.org",
+  "@randomSourceRandomOrg": {
+    "description": "Note explaining the reading was shuffled using random.org's true random number service."
+  },
+  "randomSourceLocalSecure": "Shuffled with the device's secure random generator",
+  "@randomSourceLocalSecure": {
+    "description": "Note explaining the reading was shuffled using the device's local secure random generator."
+  },
+  "interpretWithAiButton": "Interpret with AI",
+  "@interpretWithAiButton": {
+    "description": "Button label to request an AI interpretation of the reading."
+  },
+  "aiClipboardCopiedNotice": "Prompt copied — paste it into the AI app/site that opened.",
+  "@aiClipboardCopiedNotice": {
+    "description": "Notice shown after the reading prompt was copied to the clipboard and the AI provider's site/app was opened, for the user to paste it manually."
+  },
+  "aiWebFallbackAfterErrorNotice": "Direct call unavailable in this browser — opening {providerName} with the prompt copied.",
+  "@aiWebFallbackAfterErrorNotice": {
+    "description": "Notice shown on Web when a direct API call fails (e.g. due to CORS) and the app falls back to copying the prompt and opening the provider's site.",
+    "placeholders": {
+      "providerName": {
+        "type": "String",
+        "example": "Claude"
+      }
+    }
+  },
+  "interpretationErrorMessage": "Couldn't get the interpretation: {error}",
+  "@interpretationErrorMessage": {
+    "description": "Error message shown when requesting an AI interpretation fails.",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Connection timed out"
+      }
+    }
+  },
+
+  "moonPhaseNewMoon": "New Moon",
+  "@moonPhaseNewMoon": {
+    "description": "Name of the New Moon phase."
+  },
+  "moonPhaseWaxingCrescent": "Waxing Crescent",
+  "@moonPhaseWaxingCrescent": {
+    "description": "Name of the Waxing Crescent moon phase."
+  },
+  "moonPhaseFirstQuarter": "First Quarter",
+  "@moonPhaseFirstQuarter": {
+    "description": "Name of the First Quarter moon phase."
+  },
+  "moonPhaseWaxingGibbous": "Waxing Gibbous",
+  "@moonPhaseWaxingGibbous": {
+    "description": "Name of the Waxing Gibbous moon phase."
+  },
+  "moonPhaseFullMoon": "Full Moon",
+  "@moonPhaseFullMoon": {
+    "description": "Name of the Full Moon phase."
+  },
+  "moonPhaseWaningGibbous": "Waning Gibbous",
+  "@moonPhaseWaningGibbous": {
+    "description": "Name of the Waning Gibbous moon phase."
+  },
+  "moonPhaseLastQuarter": "Last Quarter",
+  "@moonPhaseLastQuarter": {
+    "description": "Name of the Last Quarter moon phase."
+  },
+  "moonPhaseWaningCrescent": "Waning Crescent",
+  "@moonPhaseWaningCrescent": {
+    "description": "Name of the Waning Crescent moon phase."
+  },
+
+  "appearanceSectionTitle": "Appearance",
+  "@appearanceSectionTitle": {
+    "description": "Settings screen section title for theme/appearance options."
+  },
+  "appearanceSectionSubtitle": "Choose the app's theme, or leave it following your system.",
+  "@appearanceSectionSubtitle": {
+    "description": "Settings screen subtitle explaining the appearance section."
+  },
+  "themeModeSystem": "System",
+  "@themeModeSystem": {
+    "description": "Theme mode option: follow the system setting."
+  },
+  "themeModeLight": "Light",
+  "@themeModeLight": {
+    "description": "Theme mode option: always light."
+  },
+  "themeModeDark": "Dark",
+  "@themeModeDark": {
+    "description": "Theme mode option: always dark."
+  },
+  "aiProviderSectionTitle": "AI Provider",
+  "@aiProviderSectionTitle": {
+    "description": "Settings screen section title for AI provider selection."
+  },
+  "aiProviderSectionSubtitle": "Choose which AI will interpret your readings. Claude is the recommended default for tarot readings.",
+  "@aiProviderSectionSubtitle": {
+    "description": "Settings screen subtitle explaining the AI provider section. \"Claude\" is a product name and must not be translated."
+  },
+  "apiKeySectionTitle": "API Key — {providerName} (optional)",
+  "@apiKeySectionTitle": {
+    "description": "Settings screen section title for the API key field, naming the currently selected provider.",
+    "placeholders": {
+      "providerName": {
+        "type": "String",
+        "example": "Claude"
+      }
+    }
+  },
+  "apiKeyStoredNotice": "A key is already saved on this device. Readings will use the API directly.",
+  "@apiKeyStoredNotice": {
+    "description": "Notice shown when an API key is already stored for the selected provider."
+  },
+  "apiKeyMissingNotice": "No key: the app builds the prompt, copies it to the clipboard, and opens {providerName} for you to paste it manually.",
+  "@apiKeyMissingNotice": {
+    "description": "Notice shown when no API key is stored for the selected provider, explaining the clipboard-copy fallback flow.",
+    "placeholders": {
+      "providerName": {
+        "type": "String",
+        "example": "Claude"
+      }
+    }
+  },
+  "apiKeyInputLabel": "Paste your API key here",
+  "@apiKeyInputLabel": {
+    "description": "Label for the API key text field."
+  },
+  "apiKeySavedSnackbar": "Key saved on this device.",
+  "@apiKeySavedSnackbar": {
+    "description": "Snackbar confirmation shown after saving an API key."
+  },
+  "apiKeyRemovedSnackbar": "Key removed.",
+  "@apiKeyRemovedSnackbar": {
+    "description": "Snackbar confirmation shown after removing an API key."
+  },
+  "webStorageWarning": "On the Web version, storage isn't protected by hardware (Keychain/Keystore) like on mobile — avoid saving production keys here.",
+  "@webStorageWarning": {
+    "description": "Warning shown on the Web build about API key storage not being hardware-backed."
+  },
+  "readingRitualSectionTitle": "Reading ritual",
+  "@readingRitualSectionTitle": {
+    "description": "Settings screen section title for optional reading ritual toggles."
+  },
+  "readingRitualSectionSubtitle": "Turn on whichever rituals feel right to you — they're all optional.",
+  "@readingRitualSectionSubtitle": {
+    "description": "Settings screen subtitle explaining the reading ritual section."
+  },
+  "askQuestionTitle": "Ask before shuffling",
+  "@askQuestionTitle": {
+    "description": "Switch title: ask the user for a question before shuffling."
+  },
+  "askQuestionSubtitle": "Type your question before each reading.",
+  "@askQuestionSubtitle": {
+    "description": "Switch subtitle explaining the ask-question-before-shuffling ritual."
+  },
+  "deckCleansingTitle": "Deck cleansing ritual",
+  "@deckCleansingTitle": {
+    "description": "Switch title: enable the deck cleansing ritual."
+  },
+  "deckCleansingSubtitle": "Tap the deck 3 times before shuffling.",
+  "@deckCleansingSubtitle": {
+    "description": "Switch subtitle explaining the deck cleansing ritual."
+  },
+  "reversedCardsTitle": "Reversed cards",
+  "@reversedCardsTitle": {
+    "description": "Switch title: allow reversed cards."
+  },
+  "reversedCardsSubtitle": "Allow cards to come up reversed.",
+  "@reversedCardsSubtitle": {
+    "description": "Switch subtitle explaining the reversed cards toggle."
+  },
+  "significatorTitle": "Representative card (significator)",
+  "@significatorTitle": {
+    "description": "Switch title: enable choosing a significator card."
+  },
+  "significatorSubtitle": "Choose a card to represent you before the reading.",
+  "@significatorSubtitle": {
+    "description": "Switch subtitle explaining the significator card toggle."
+  },
+  "moonPhaseTitle": "Moon phase",
+  "@moonPhaseTitle": {
+    "description": "Switch title: show the current moon phase."
+  },
+  "moonPhaseSubtitle": "Show the current moon phase during the reading.",
+  "@moonPhaseSubtitle": {
+    "description": "Switch subtitle explaining the moon phase toggle."
+  },
+  "aboutSectionTitle": "About",
+  "@aboutSectionTitle": {
+    "description": "Settings screen section title for the about/disclaimer text."
+  },
+  "aboutDisclaimerText": "This app is for entertainment and self-reflection purposes only — it is not a substitute for professional medical, legal, or financial advice.\n\nYour API key, when provided, is sent only directly to the chosen provider and never passes through any server belonging to this app.\n\nCard images (when added) use the Rider-Waite-Smith deck, which is in the public domain in the United States.",
+  "@aboutDisclaimerText": {
+    "description": "Disclaimer and privacy note shown in the About section of the settings screen."
+  },
+
+  "cardCountLabel": "{count, plural, one{{count} card} other{{count} cards}}",
+  "@cardCountLabel": {
+    "description": "Chip label showing how many cards a spread uses.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+
+  "adPlaceholderLabel": "Ad",
+  "@adPlaceholderLabel": {
+    "description": "Placeholder label shown inside the fixed ad banner slot (no ad network wired up yet)."
+  },
+
+  "spreadSingleCardName": "Single Card",
+  "@spreadSingleCardName": {
+    "description": "Name of the Single Card spread."
+  },
+  "spreadSingleCardDescription": "One card for quick, focused clarity on a question or the energy of the day.",
+  "@spreadSingleCardDescription": {
+    "description": "Description of the Single Card spread."
+  },
+  "spreadThreeCardName": "Past, Present, Future",
+  "@spreadThreeCardName": {
+    "description": "Name of the Past, Present, Future spread."
+  },
+  "spreadThreeCardDescription": "A classic three-card arc tracing how a situation has moved and where it may be heading.",
+  "@spreadThreeCardDescription": {
+    "description": "Description of the Past, Present, Future spread."
+  },
+  "spreadFiveCardName": "Situation, Obstacle, Advice, Underlying, Outcome",
+  "@spreadFiveCardName": {
+    "description": "Name of the five-card spread."
+  },
+  "spreadFiveCardDescription": "A five-card spread that unpacks a situation, what stands in its way, and how to move through it.",
+  "@spreadFiveCardDescription": {
+    "description": "Description of the five-card spread."
+  },
+  "spreadCelticCrossName": "Celtic Cross",
+  "@spreadCelticCrossName": {
+    "description": "Name of the Celtic Cross spread."
+  },
+  "spreadCelticCrossDescription": "A deep, ten-card spread exploring a situation from every angle — internal and external.",
+  "@spreadCelticCrossDescription": {
+    "description": "Description of the Celtic Cross spread."
+  },
+
+  "spreadSingleCardPositionFocusLabel": "Focus",
+  "@spreadSingleCardPositionFocusLabel": {
+    "description": "Label of the \"focus\" position in the Single Card spread."
+  },
+  "spreadSingleCardPositionFocusMeaning": "The heart of the matter you brought to this reading.",
+  "@spreadSingleCardPositionFocusMeaning": {
+    "description": "Meaning of the \"focus\" position in the Single Card spread."
+  },
+
+  "spreadThreeCardPositionPastLabel": "Past",
+  "@spreadThreeCardPositionPastLabel": {
+    "description": "Label of the \"past\" position in the Past, Present, Future spread."
+  },
+  "spreadThreeCardPositionPastMeaning": "Influences and events that have shaped the situation.",
+  "@spreadThreeCardPositionPastMeaning": {
+    "description": "Meaning of the \"past\" position in the Past, Present, Future spread."
+  },
+  "spreadThreeCardPositionPresentLabel": "Present",
+  "@spreadThreeCardPositionPresentLabel": {
+    "description": "Label of the \"present\" position in the Past, Present, Future spread."
+  },
+  "spreadThreeCardPositionPresentMeaning": "The current energy and circumstances at play.",
+  "@spreadThreeCardPositionPresentMeaning": {
+    "description": "Meaning of the \"present\" position in the Past, Present, Future spread."
+  },
+  "spreadThreeCardPositionFutureLabel": "Future",
+  "@spreadThreeCardPositionFutureLabel": {
+    "description": "Label of the \"future\" position in the Past, Present, Future spread."
+  },
+  "spreadThreeCardPositionFutureMeaning": "Where things are heading if the current path continues.",
+  "@spreadThreeCardPositionFutureMeaning": {
+    "description": "Meaning of the \"future\" position in the Past, Present, Future spread."
+  },
+
+  "spreadFiveCardPositionSituationLabel": "Situation",
+  "@spreadFiveCardPositionSituationLabel": {
+    "description": "Label of the \"situation\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionSituationMeaning": "What is happening right now in this area of your life.",
+  "@spreadFiveCardPositionSituationMeaning": {
+    "description": "Meaning of the \"situation\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionObstacleLabel": "Obstacle",
+  "@spreadFiveCardPositionObstacleLabel": {
+    "description": "Label of the \"obstacle\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionObstacleMeaning": "What is blocking or complicating your progress.",
+  "@spreadFiveCardPositionObstacleMeaning": {
+    "description": "Meaning of the \"obstacle\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionAdviceLabel": "Advice",
+  "@spreadFiveCardPositionAdviceLabel": {
+    "description": "Label of the \"advice\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionAdviceMeaning": "Guidance on how to approach or move through this.",
+  "@spreadFiveCardPositionAdviceMeaning": {
+    "description": "Meaning of the \"advice\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionUnderlyingLabel": "Underlying Influence",
+  "@spreadFiveCardPositionUnderlyingLabel": {
+    "description": "Label of the \"underlying influence\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionUnderlyingMeaning": "Hidden factors or feelings shaping the situation beneath the surface.",
+  "@spreadFiveCardPositionUnderlyingMeaning": {
+    "description": "Meaning of the \"underlying influence\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionOutcomeLabel": "Outcome",
+  "@spreadFiveCardPositionOutcomeLabel": {
+    "description": "Label of the \"outcome\" position in the five-card spread."
+  },
+  "spreadFiveCardPositionOutcomeMeaning": "Where this is heading if you follow the current path.",
+  "@spreadFiveCardPositionOutcomeMeaning": {
+    "description": "Meaning of the \"outcome\" position in the five-card spread."
+  },
+
+  "spreadCelticCrossPositionPresentLabel": "Present",
+  "@spreadCelticCrossPositionPresentLabel": {
+    "description": "Label of the \"present\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionPresentMeaning": "The heart of the current situation.",
+  "@spreadCelticCrossPositionPresentMeaning": {
+    "description": "Meaning of the \"present\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionChallengeLabel": "Challenge",
+  "@spreadCelticCrossPositionChallengeLabel": {
+    "description": "Label of the \"challenge\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionChallengeMeaning": "What crosses or complicates the situation.",
+  "@spreadCelticCrossPositionChallengeMeaning": {
+    "description": "Meaning of the \"challenge\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionFoundationLabel": "Foundation",
+  "@spreadCelticCrossPositionFoundationLabel": {
+    "description": "Label of the \"foundation\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionFoundationMeaning": "The distant past or root cause underlying things.",
+  "@spreadCelticCrossPositionFoundationMeaning": {
+    "description": "Meaning of the \"foundation\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionRecentPastLabel": "Recent Past",
+  "@spreadCelticCrossPositionRecentPastLabel": {
+    "description": "Label of the \"recent past\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionRecentPastMeaning": "Events that have just occurred or are passing.",
+  "@spreadCelticCrossPositionRecentPastMeaning": {
+    "description": "Meaning of the \"recent past\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionBestOutcomeLabel": "Best Outcome",
+  "@spreadCelticCrossPositionBestOutcomeLabel": {
+    "description": "Label of the \"best outcome\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionBestOutcomeMeaning": "The best possible outcome if things go well.",
+  "@spreadCelticCrossPositionBestOutcomeMeaning": {
+    "description": "Meaning of the \"best outcome\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionNearFutureLabel": "Near Future",
+  "@spreadCelticCrossPositionNearFutureLabel": {
+    "description": "Label of the \"near future\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionNearFutureMeaning": "What is approaching next.",
+  "@spreadCelticCrossPositionNearFutureMeaning": {
+    "description": "Meaning of the \"near future\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionSelfLabel": "Yourself",
+  "@spreadCelticCrossPositionSelfLabel": {
+    "description": "Label of the \"self\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionSelfMeaning": "Your attitude or role in the situation right now.",
+  "@spreadCelticCrossPositionSelfMeaning": {
+    "description": "Meaning of the \"self\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionExternalLabel": "External Influences",
+  "@spreadCelticCrossPositionExternalLabel": {
+    "description": "Label of the \"external influences\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionExternalMeaning": "People or forces around you shaping the outcome.",
+  "@spreadCelticCrossPositionExternalMeaning": {
+    "description": "Meaning of the \"external influences\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionHopesFearsLabel": "Hopes & Fears",
+  "@spreadCelticCrossPositionHopesFearsLabel": {
+    "description": "Label of the \"hopes & fears\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionHopesFearsMeaning": "What you privately hope for or fear about this situation.",
+  "@spreadCelticCrossPositionHopesFearsMeaning": {
+    "description": "Meaning of the \"hopes & fears\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionOutcomeLabel": "Outcome",
+  "@spreadCelticCrossPositionOutcomeLabel": {
+    "description": "Label of the \"outcome\" position in the Celtic Cross spread."
+  },
+  "spreadCelticCrossPositionOutcomeMeaning": "The likely culmination if the current path continues.",
+  "@spreadCelticCrossPositionOutcomeMeaning": {
+    "description": "Meaning of the \"outcome\" position in the Celtic Cross spread."
+  },
+
+  "promptNoQuestionText": "No specific question was asked — a general reading request.",
+  "@promptNoQuestionText": {
+    "description": "Line used in the AI prompt in place of the user's question when none was given."
+  },
+  "promptQuestionIntro": "I asked the following question to the tarot cards:",
+  "@promptQuestionIntro": {
+    "description": "Intro line in the AI prompt introducing the user's question (or the no-question fallback)."
+  },
+  "promptCardsIntro": "And the following cards were drawn:",
+  "@promptCardsIntro": {
+    "description": "Intro line in the AI prompt introducing the list of drawn cards."
+  },
+  "promptClosingQuestion": "What is the interpretation?",
+  "@promptClosingQuestion": {
+    "description": "Closing line in the AI prompt asking for the interpretation."
+  },
+  "promptOrientationUpright": "upright",
+  "@promptOrientationUpright": {
+    "description": "Card orientation word used in the AI prompt for an upright card."
+  },
+  "promptOrientationReversed": "reversed",
+  "@promptOrientationReversed": {
+    "description": "Card orientation word used in the AI prompt for a reversed card."
+  }
+}
