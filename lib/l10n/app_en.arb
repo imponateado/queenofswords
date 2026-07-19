@@ -5,7 +5,7 @@
     "description": "The application's display name."
   },
 
-  "homeTitle": "Tarot",
+  "homeTitle": "Queen of Swords",
   "@homeTitle": {
     "description": "Title shown on the home screen's app bar, drawer header, and hero heading."
   },

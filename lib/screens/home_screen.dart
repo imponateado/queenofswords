@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_scaffold.dart';
+import '../widgets/tarot_card_widget.dart';
 import 'about_tarot_screen.dart';
 import 'card_encyclopedia_screen.dart';
 import 'history_screen.dart';
@@ -74,43 +75,106 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.auto_awesome,
-                size: 56,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                l10n.homeTitle,
-                style: Theme.of(context).textTheme.displaySmall,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                l10n.homeSubtitle,
-                style: Theme.of(context).textTheme.bodyMedium,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32),
-              FilledButton.icon(
-                icon: const Icon(Icons.style_outlined),
-                label: Text(l10n.newReadingButton),
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => const SpreadSelectionScreen(),
+      body: Stack(
+        clipBehavior: Clip.hardEdge,
+        children: [
+          const Positioned.fill(child: _ScatteredCardsBackground()),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Card(
+                elevation: 6,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 28,
+                    vertical: 32,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        l10n.homeSubtitle,
+                        style: Theme.of(context).textTheme.titleMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 24),
+                      FilledButton.icon(
+                        icon: const Icon(Icons.style_outlined),
+                        label: Text(l10n.newReadingButton),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const SpreadSelectionScreen(),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
+}
+
+/// Card backs scattered across the home screen like a spread laid out on a
+/// table. Positions are fixed (not re-randomized per build) so the layout
+/// doesn't jump around every time the screen rebuilds.
+class _ScatteredCardsBackground extends StatelessWidget {
+  const _ScatteredCardsBackground();
+
+  static const _cards = [
+    _ScatteredCard(left: 0.04, top: 0.06, angle: -0.35, scale: 0.85),
+    _ScatteredCard(left: 0.66, top: 0.02, angle: 0.30, scale: 0.7),
+    _ScatteredCard(left: 0.80, top: 0.60, angle: -0.20, scale: 0.9),
+    _ScatteredCard(left: 0.06, top: 0.64, angle: 0.42, scale: 0.75),
+    _ScatteredCard(left: 0.38, top: 0.76, angle: -0.5, scale: 0.65),
+    _ScatteredCard(left: 0.34, top: -0.04, angle: 0.16, scale: 0.6),
+    _ScatteredCard(left: -0.08, top: 0.36, angle: 0.6, scale: 0.8),
+    _ScatteredCard(left: 0.86, top: 0.30, angle: -0.6, scale: 0.65),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Stack(
+          clipBehavior: Clip.hardEdge,
+          children: [
+            for (final card in _cards)
+              Positioned(
+                left: constraints.maxWidth * card.left,
+                top: constraints.maxHeight * card.top,
+                child: Transform.rotate(
+                  angle: card.angle,
+                  child: Opacity(
+                    opacity: 0.55,
+                    child: CardBackFace(
+                      width: 120 * card.scale,
+                      height: 200 * card.scale,
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _ScatteredCard {
+  const _ScatteredCard({
+    required this.left,
+    required this.top,
+    required this.angle,
+    required this.scale,
+  });
+
+  final double left;
+  final double top;
+  final double angle;
+  final double scale;
 }

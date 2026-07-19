@@ -7,7 +7,7 @@ void main() {
     await tester.pumpWidget(const TarotApp());
     await tester.pump();
 
-    expect(find.text('Tarot'), findsWidgets);
+    expect(find.text('Queen of Swords'), findsWidgets);
     expect(find.text('New reading'), findsOneWidget);
   });
 }
