@@ -6,6 +6,7 @@ import '../models/ai_provider_config.dart';
 /// Non-secret settings — never anything that belongs in secure storage.
 class SettingsService {
   static const _selectedProviderKey = 'selected_ai_provider';
+  static const _enableAiInterpretationKey = 'enable_ai_interpretation';
   static const _askQuestionKey = 'ask_question_before_draw';
   static const _cleansingRitualKey = 'deck_cleansing_ritual_enabled';
   static const _allowReversedKey = 'allow_reversed_cards';
@@ -42,6 +43,18 @@ class SettingsService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_selectedProviderKey, provider.name);
   }
+
+  Future<bool> getEnableAiInterpretation() async =>
+      (await SharedPreferences.getInstance()).getBool(
+        _enableAiInterpretationKey,
+      ) ??
+      true;
+
+  Future<void> setEnableAiInterpretation(bool value) async =>
+      (await SharedPreferences.getInstance()).setBool(
+        _enableAiInterpretationKey,
+        value,
+      );
 
   Future<bool> getAskQuestionBeforeDraw() async =>
       (await SharedPreferences.getInstance()).getBool(_askQuestionKey) ?? false;

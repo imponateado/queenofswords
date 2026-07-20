@@ -16,6 +16,7 @@ class SettingsProvider extends ChangeNotifier {
   final SecureStorageService _secureStorage;
 
   AiProvider _selectedProvider = AiProvider.claude;
+  bool _enableAiInterpretation = true;
   final Map<AiProvider, bool> _hasApiKey = {
     for (final p in AiProvider.values) p: false,
   };
@@ -29,6 +30,7 @@ class SettingsProvider extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
 
   AiProvider get selectedProvider => _selectedProvider;
+  bool get enableAiInterpretation => _enableAiInterpretation;
   bool get isLoaded => _isLoaded;
   bool hasApiKey(AiProvider provider) => _hasApiKey[provider] ?? false;
 
@@ -42,6 +44,8 @@ class SettingsProvider extends ChangeNotifier {
   Future<void> load() async {
     if (_isLoaded) return;
     _selectedProvider = await _settingsService.getSelectedProvider();
+    _enableAiInterpretation = await _settingsService
+        .getEnableAiInterpretation();
     for (final provider in AiProvider.values) {
       final key = await _secureStorage.getApiKey(provider);
       _hasApiKey[provider] = key != null && key.isNotEmpty;
@@ -65,6 +69,12 @@ class SettingsProvider extends ChangeNotifier {
   Future<void> selectProvider(AiProvider provider) async {
     _selectedProvider = provider;
     await _settingsService.setSelectedProvider(provider);
+    notifyListeners();
+  }
+
+  Future<void> setEnableAiInterpretation(bool value) async {
+    _enableAiInterpretation = value;
+    await _settingsService.setEnableAiInterpretation(value);
     notifyListeners();
   }
 

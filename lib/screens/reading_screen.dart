@@ -12,7 +12,6 @@ import '../providers/deck_provider.dart';
 import '../providers/reading_provider.dart';
 import '../providers/settings_provider.dart';
 import '../services/ai/ai_result.dart';
-import '../services/random/random_org_service.dart';
 import '../utils/moon_phase.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/provider_selector.dart';
@@ -151,11 +150,6 @@ class _ReadingScreenState extends State<ReadingScreen> {
                 drawnCards: reading.drawnCards,
                 isRevealed: _revealed,
               ),
-              const SizedBox(height: 16),
-              _RandomSourceNote(
-                source: reading.randomSource,
-                service: readingProvider.randomService,
-              ),
               const SizedBox(height: 20),
               if (!_revealed)
                 FilledButton.icon(
@@ -164,12 +158,14 @@ class _ReadingScreenState extends State<ReadingScreen> {
                   onPressed: () => setState(() => _revealed = true),
                 )
               else ...[
-                _InterpretationSection(
-                  reading: reading,
-                  readingProvider: readingProvider,
-                  settingsProvider: settingsProvider,
-                ),
-                const SizedBox(height: 12),
+                if (settingsProvider.enableAiInterpretation) ...[
+                  _InterpretationSection(
+                    reading: reading,
+                    readingProvider: readingProvider,
+                    settingsProvider: settingsProvider,
+                  ),
+                  const SizedBox(height: 12),
+                ],
                 TextButton.icon(
                   icon: const Icon(Icons.refresh),
                   label: Text(l10n.newReadingButton),
@@ -429,33 +425,6 @@ class _ShufflingIndicator extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _RandomSourceNote extends StatelessWidget {
-  const _RandomSourceNote({required this.source, required this.service});
-
-  final RandomSource source;
-  final RandomOrgService service;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final label = source == RandomSource.randomOrg
-        ? l10n.randomSourceRandomOrg
-        : l10n.randomSourceLocalSecure;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          Icons.info_outline,
-          size: 14,
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
-        ),
-        const SizedBox(width: 6),
-        Text(label, style: Theme.of(context).textTheme.labelSmall),
-      ],
     );
   }
 }

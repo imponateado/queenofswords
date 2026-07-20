@@ -28,7 +28,7 @@ class PromptBuilder {
     final cardsBlock = reading.drawnCards
         .map((drawn) {
           final orientation = drawn.isReversed ? orientationReversed : orientationUpright;
-          return '- ${positionLabel(drawn.position)}: ${drawn.card.name} ($orientation) — ${drawn.activeMeaning}';
+          return '- ${positionLabel(drawn.position)}: ${drawn.card.name} ($orientation)';
         })
         .join('\n');
 

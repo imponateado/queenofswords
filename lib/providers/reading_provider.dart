@@ -42,7 +42,6 @@ class ReadingProvider extends ChangeNotifier {
   String? get interpretationNoticeProviderName =>
       _interpretationNoticeProviderName;
   String? get interpretationError => _interpretationError;
-  RandomOrgService get randomService => _randomService;
 
   Future<void> drawReading({
     required Spread spread,

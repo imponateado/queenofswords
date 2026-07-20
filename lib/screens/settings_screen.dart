@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/ai_provider_config.dart';
@@ -87,82 +88,91 @@ class _SettingsScreenState extends State<SettingsScreen> {
             l10n.aiProviderSectionSubtitle,
             style: Theme.of(context).textTheme.bodySmall,
           ),
-          const SizedBox(height: 12),
-          ProviderSelector(
-            selected: settings.selectedProvider,
-            onChanged: (p) {
-              settings.selectProvider(p);
-              _apiKeyController.clear();
-            },
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Text(l10n.enableAiInterpretationTitle),
+            subtitle: Text(l10n.enableAiInterpretationSubtitle),
+            value: settings.enableAiInterpretation,
+            onChanged: settings.setEnableAiInterpretation,
           ),
-          const SizedBox(height: 24),
-          Text(
-            l10n.apiKeySectionTitle(config.displayName),
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            hasKey
-                ? l10n.apiKeyStoredNotice
-                : l10n.apiKeyMissingNotice(config.displayName),
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          const SizedBox(height: 12),
-          TextField(
-            controller: _apiKeyController,
-            obscureText: _obscure,
-            decoration: InputDecoration(
-              labelText: l10n.apiKeyInputLabel,
-              border: const OutlineInputBorder(),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  _obscure
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                ),
-                onPressed: () => setState(() => _obscure = !_obscure),
-              ),
+          if (settings.enableAiInterpretation) ...[
+            const SizedBox(height: 12),
+            ProviderSelector(
+              selected: settings.selectedProvider,
+              onChanged: (p) {
+                settings.selectProvider(p);
+                _apiKeyController.clear();
+              },
             ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              FilledButton(
-                onPressed: _apiKeyController.text.trim().isEmpty
-                    ? null
-                    : () {
-                        settings.setApiKey(
-                          settings.selectedProvider,
-                          _apiKeyController.text.trim(),
-                        );
-                        _apiKeyController.clear();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(l10n.apiKeySavedSnackbar)),
-                        );
-                      },
-                child: Text(l10n.saveButton),
-              ),
-              const SizedBox(width: 8),
-              if (hasKey)
-                OutlinedButton(
-                  onPressed: () {
-                    settings.clearApiKey(settings.selectedProvider);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(l10n.apiKeyRemovedSnackbar)),
-                    );
-                  },
-                  child: Text(l10n.removeButton),
-                ),
-            ],
-          ),
-          if (kIsWeb) ...[
+            const SizedBox(height: 24),
+            Text(
+              l10n.apiKeySectionTitle(config.displayName),
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 8),
             Text(
-              l10n.webStorageWarning,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.error,
+              hasKey
+                  ? l10n.apiKeyStoredNotice
+                  : l10n.apiKeyMissingNotice(config.displayName),
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _apiKeyController,
+              obscureText: _obscure,
+              decoration: InputDecoration(
+                labelText: l10n.apiKeyInputLabel,
+                border: const OutlineInputBorder(),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscure
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                  ),
+                  onPressed: () => setState(() => _obscure = !_obscure),
+                ),
               ),
             ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                FilledButton(
+                  onPressed: _apiKeyController.text.trim().isEmpty
+                      ? null
+                      : () {
+                          settings.setApiKey(
+                            settings.selectedProvider,
+                            _apiKeyController.text.trim(),
+                          );
+                          _apiKeyController.clear();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(l10n.apiKeySavedSnackbar)),
+                          );
+                        },
+                  child: Text(l10n.saveButton),
+                ),
+                const SizedBox(width: 8),
+                if (hasKey)
+                  OutlinedButton(
+                    onPressed: () {
+                      settings.clearApiKey(settings.selectedProvider);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(l10n.apiKeyRemovedSnackbar)),
+                      );
+                    },
+                    child: Text(l10n.removeButton),
+                  ),
+              ],
+            ),
+            if (kIsWeb) ...[
+              const SizedBox(height: 8),
+              Text(
+                l10n.webStorageWarning,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.error,
+                ),
+              ),
+            ],
           ],
           const Divider(height: 40),
           Text(
@@ -212,6 +222,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 8),
           Text(
             l10n.aboutDisclaimerText,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const Divider(height: 40),
+          Text(
+            l10n.creditsSectionTitle,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.casino_outlined),
+            title: Text(l10n.creditsRandomOrgTitle),
+            subtitle: Text(l10n.creditsRandomOrgSubtitle),
+            trailing: const Icon(Icons.open_in_new, size: 18),
+            onTap: () => launchUrl(
+              Uri.parse('https://www.random.org'),
+              mode: LaunchMode.externalApplication,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            l10n.creditsLibrariesTitle,
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            l10n.creditsLibrariesText,
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ],

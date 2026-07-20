@@ -49,8 +49,6 @@
   "questionInputLabel": "Qual é a sua pergunta?",
   "shuffleButton": "Embaralhar",
   "shufflingIndicatorText": "Embaralhando...",
-  "randomSourceRandomOrg": "Embaralhado com aleatoriedade verdadeira do random.org",
-  "randomSourceLocalSecure": "Embaralhado com o gerador aleatório seguro do dispositivo",
   "interpretWithAiButton": "Interpretar com IA",
   "aiClipboardCopiedNotice": "Prompt copiado — cole no app/site da IA que abriu.",
   "aiWebFallbackAfterErrorNotice": "Chamada direta indisponível neste navegador — abrindo {providerName} com o prompt copiado.",
@@ -72,6 +70,8 @@
   "themeModeDark": "Escuro",
   "aiProviderSectionTitle": "Provedor de IA",
   "aiProviderSectionSubtitle": "Escolha qual IA vai interpretar suas leituras. Claude é o padrão recomendado para leituras de tarot.",
+  "enableAiInterpretationTitle": "Habilitar interpretação por IA",
+  "enableAiInterpretationSubtitle": "Quando desligado, a leitura mostra só as cartas sorteadas — nenhum provedor de IA, chave de API ou opção de interpretação é usado.",
   "apiKeySectionTitle": "Chave de API — {providerName} (opcional)",
   "apiKeyStoredNotice": "Uma chave já está salva neste dispositivo. As leituras vão usar a API diretamente.",
   "apiKeyMissingNotice": "Sem chave: o app monta o prompt, copia para a área de transferência e abre o {providerName} para você colar manualmente.",
@@ -93,6 +93,12 @@
   "moonPhaseSubtitle": "Mostrar a fase da lua atual durante a leitura.",
   "aboutSectionTitle": "Sobre",
   "aboutDisclaimerText": "Este app é apenas para fins de entretenimento e autorreflexão — não substitui aconselhamento médico, legal ou financeiro profissional.\n\nSua chave de API, quando fornecida, é enviada apenas diretamente ao provedor escolhido e nunca passa por nenhum servidor deste app.\n\nAs imagens das cartas (quando adicionadas) usam o baralho Rider-Waite-Smith, de domínio público nos Estados Unidos.",
+
+  "creditsSectionTitle": "Créditos",
+  "creditsRandomOrgTitle": "random.org",
+  "creditsRandomOrgSubtitle": "O embaralhamento das cartas usa números verdadeiramente aleatórios gerados a partir de ruído atmosférico, sempre que o serviço está disponível — com o gerador aleatório seguro do próprio aparelho como alternativa.",
+  "creditsLibrariesTitle": "Bibliotecas de código aberto",
+  "creditsLibrariesText": "Construído com Flutter e estes pacotes de código aberto: provider, dio, hive, google_fonts, url_launcher, flutter_secure_storage, shared_preferences, uuid, intl, equatable e package_info_plus.",
 
   "cardCountLabel": "{count, plural, one{{count} carta} other{{count} cartas}}",
 

@@ -19,9 +19,6 @@ class DrawnCard extends Equatable {
 
   String get orientationLabel => isReversed ? 'Reversed' : 'Upright';
 
-  String get activeMeaning =>
-      isReversed ? card.reversedMeaning : card.uprightMeaning;
-
   @override
   List<Object?> get props => [card, position, isReversed];
 }

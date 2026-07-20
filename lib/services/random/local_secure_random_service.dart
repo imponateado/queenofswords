@@ -3,8 +3,10 @@ import 'dart:math';
 import 'random_service.dart';
 
 /// Fisher-Yates shuffle backed by a cryptographically secure PRNG.
-/// Always available on every platform — used both as the primary source
-/// of randomness on Flutter Web and as the fallback everywhere else.
+/// Always available on every platform — used as the fallback whenever
+/// [RandomOrgService]'s network call fails (offline, timeout, malformed or
+/// too-short response), on every platform including Flutter Web, where
+/// random.org is tried first same as everywhere else.
 class LocalSecureRandomService implements RandomService {
   final Random _rng = Random.secure();
 
