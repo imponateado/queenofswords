@@ -1,9 +1,90 @@
 # Queen of Swords 🗡️
 
-A tarot reading app built with Flutter, featuring true random shuffling and optional AI-powered interpretations.
+**Português** · [English](#english)
+
+Um app de tiragem de tarô feito em Flutter, com embaralhamento verdadeiramente aleatório e interpretações por IA opcionais.
 
 [![Release](https://img.shields.io/github/v/release/imponateado/queenofswords)](https://github.com/imponateado/queenofswords/releases/latest)
 [![Build](https://github.com/imponateado/queenofswords/actions/workflows/release.yml/badge.svg)](https://github.com/imponateado/queenofswords/actions/workflows/release.yml)
+
+## Funcionalidades
+
+- **Embaralhamento verdadeiramente aleatório** — as cartas são sorteadas com a aleatoriedade de ruído atmosférico do [random.org](https://www.random.org), com fallback local criptograficamente seguro quando offline
+- **Quatro tiragens** — Carta Única, Três Cartas (passado / presente / futuro), Cinco Cartas e Cruz Celta
+- **Interpretação por IA (opcional)** — use sua própria chave de API do Claude, ChatGPT, Gemini, DeepSeek, Qwen, Kimi ou GLM; as chaves ficam no armazenamento seguro do sistema e nunca saem do seu aparelho
+- **Enciclopédia de cartas** — navegue pelas 78 cartas com significados na posição normal e invertida
+- **Histórico de tiragens** — suas leituras ficam salvas localmente no aparelho
+- **Fase da lua** — veja a fase lunar atual junto da sua tiragem
+- **Bilíngue** — Português do Brasil e inglês
+
+## Instalação
+
+Baixe a versão mais recente na página de [Releases](https://github.com/imponateado/queenofswords/releases/latest).
+
+### Android
+
+Baixe o APK correspondente ao seu aparelho e instale:
+
+| APK | Aparelho |
+| --- | --- |
+| `arm64-v8a` | Maioria dos celulares (2017 em diante) |
+| `armeabi-v7a` | Aparelhos antigos de 32 bits |
+| `x86_64` | Emuladores e Chromebooks |
+
+Na dúvida, comece pelo `arm64-v8a`.
+
+### iOS
+
+O IPA não é assinado, então precisa ser instalado por sideload com ferramentas como [AltStore](https://altstore.io/) ou [Sideloadly](https://sideloadly.io/), ou reassinado com seu próprio certificado de desenvolvedor Apple.
+
+## Compilando do código-fonte
+
+Requer [Flutter](https://flutter.dev) 3.44+ no canal stable.
+
+```bash
+git clone https://github.com/imponateado/queenofswords.git
+cd queenofswords
+flutter pub get
+flutter run
+```
+
+Builds de release:
+
+```bash
+flutter build apk --release --split-per-abi   # Android
+flutter build ios --release --no-codesign     # iOS (sem assinatura)
+```
+
+## Publicando uma versão
+
+As releases são automatizadas com GitHub Actions. Ao enviar uma tag, os APKs e o IPA são compilados e publicados:
+
+```bash
+# primeiro atualize o `version:` no pubspec.yaml, depois:
+git tag v1.x.y
+git push origin v1.x.y
+```
+
+## Notas técnicas
+
+- Gerenciamento de estado com [provider](https://pub.dev/packages/provider)
+- Histórico persistido com [Hive](https://pub.dev/packages/hive)
+- Chaves de API armazenadas via [flutter_secure_storage](https://pub.dev/packages/flutter_secure_storage)
+- Localização com o `gen-l10n` do Flutter (`lib/l10n`)
+
+## Licença
+
+Nenhuma licença foi definida ainda — todos os direitos reservados por enquanto.
+
+---
+
+<a name="english"></a>
+
+# English
+
+[Português](#queen-of-swords-️) · **English**
+
+A tarot reading app built with Flutter, featuring true random shuffling and optional AI-powered interpretations.
 
 ## Features
 
@@ -13,7 +94,7 @@ A tarot reading app built with Flutter, featuring true random shuffling and opti
 - **Card encyclopedia** — browse all 78 cards with upright and reversed meanings
 - **Reading history** — past readings are stored locally on your device
 - **Moon phase** — see the current lunar phase alongside your reading
-- **Bilingual** — English and Portuguese (Português do Brasil)
+- **Bilingual** — Portuguese (Português do Brasil) and English
 
 ## Installation
 
