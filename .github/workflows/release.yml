@@ -33,16 +33,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release
+      - name: Build APKs (split per ABI)
+        run: flutter build apk --release --split-per-abi
 
-      - name: Rename APK
-        run: mv build/app/outputs/flutter-apk/app-release.apk QueenOfSwords-${{ github.ref_name }}.apk
+      - name: Rename APKs
+        run: |
+          for abi in armeabi-v7a arm64-v8a x86_64; do
+            mv "build/app/outputs/flutter-apk/app-$abi-release.apk" "QueenOfSwords-${{ github.ref_name }}-$abi.apk"
+          done
 
       - uses: actions/upload-artifact@v4
         with:
           name: apk
-          path: QueenOfSwords-${{ github.ref_name }}.apk
+          path: QueenOfSwords-${{ github.ref_name }}-*.apk
 
   build-ios:
     name: Build IPA (unsigned)
