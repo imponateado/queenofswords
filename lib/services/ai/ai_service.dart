@@ -8,7 +8,7 @@ import '../../models/spread.dart';
 import '../secure_storage_service.dart';
 import 'adapters/claude_adapter.dart';
 import 'adapters/gemini_adapter.dart';
-import 'adapters/openai_adapter.dart';
+import 'adapters/openai_compatible_adapter.dart';
 import 'ai_provider_adapter.dart';
 import 'ai_result.dart';
 import 'prompt_builder.dart';
@@ -30,8 +30,14 @@ class AiService {
            adapters ??
            {
              AiProvider.claude: ClaudeAdapter(),
-             AiProvider.chatgpt: OpenAiAdapter(),
+             AiProvider.chatgpt: OpenAiCompatibleAdapter(AiProvider.chatgpt),
              AiProvider.gemini: GeminiAdapter(),
+             AiProvider.deepseek: OpenAiCompatibleAdapter(AiProvider.deepseek),
+             AiProvider.qwen: OpenAiCompatibleAdapter(AiProvider.qwen),
+             AiProvider.moonshot: OpenAiCompatibleAdapter(
+               AiProvider.moonshot,
+             ),
+             AiProvider.zhipu: OpenAiCompatibleAdapter(AiProvider.zhipu),
            };
 
   final SecureStorageService _storage;

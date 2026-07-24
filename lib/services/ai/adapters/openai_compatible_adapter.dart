@@ -3,18 +3,20 @@ import 'package:dio/dio.dart';
 import '../../../models/ai_provider_config.dart';
 import '../ai_provider_adapter.dart';
 
-/// OpenAI Chat Completions API. Bearer-token auth. OpenAI's browser-CORS
-/// posture for this endpoint is unverified — AiService already falls back
-/// to the clipboard/deep-link flow on any failure on Web, so this adapter
-/// just needs to fail cleanly rather than handle CORS specially.
-class OpenAiAdapter implements AiProviderAdapter {
-  OpenAiAdapter({Dio? dio}) : _dio = dio ?? Dio();
+/// Shared adapter for providers exposing an OpenAI-compatible chat
+/// completions endpoint (Bearer auth, `{model, messages}` body,
+/// `choices[0].message.content` response). Covers ChatGPT itself plus
+/// DeepSeek, Qwen (DashScope's compatible-mode endpoint), Moonshot (Kimi),
+/// and Zhipu (GLM), which all mirror this contract.
+class OpenAiCompatibleAdapter implements AiProviderAdapter {
+  OpenAiCompatibleAdapter(this.provider, {Dio? dio}) : _dio = dio ?? Dio();
 
+  final AiProvider provider;
   final Dio _dio;
 
   @override
   Future<String> generateInterpretation(String apiKey, String prompt) async {
-    final config = AiProviderConfig.all[AiProvider.chatgpt]!;
+    final config = AiProviderConfig.all[provider]!;
     final response = await _dio.post<Map<String, dynamic>>(
       config.apiEndpoint,
       options: Options(
@@ -33,7 +35,9 @@ class OpenAiAdapter implements AiProviderAdapter {
 
     final choices = response.data?['choices'] as List?;
     if (choices == null || choices.isEmpty) {
-      throw const FormatException('Unexpected OpenAI API response');
+      throw FormatException(
+        'Unexpected ${config.displayName} API response',
+      );
     }
     return choices.first['message']['content'] as String;
   }

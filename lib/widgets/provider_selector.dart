@@ -14,17 +14,20 @@ class ProviderSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SegmentedButton<AiProvider>(
-      segments: AiProvider.values
-          .map(
-            (p) => ButtonSegment(
-              value: p,
-              label: Text(AiProviderConfig.all[p]!.displayName),
-            ),
-          )
-          .toList(),
-      selected: {selected},
-      onSelectionChanged: (set) => onChanged(set.first),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: SegmentedButton<AiProvider>(
+        segments: AiProvider.values
+            .map(
+              (p) => ButtonSegment(
+                value: p,
+                label: Text(AiProviderConfig.all[p]!.displayName),
+              ),
+            )
+            .toList(),
+        selected: {selected},
+        onSelectionChanged: (set) => onChanged(set.first),
+      ),
     );
   }
 }

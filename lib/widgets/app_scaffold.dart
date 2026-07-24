@@ -28,7 +28,17 @@ class AppScaffold extends StatelessWidget {
           ? null
           : AppBar(title: Text(title!), actions: actions),
       drawer: drawer,
-      body: SafeArea(bottom: false, child: body),
+      // Scaffold gives its body a loose width constraint, so a top-level
+      // Column (e.g. inside a SingleChildScrollView) shrink-wraps to its
+      // content instead of filling the screen — and since Scaffold anchors
+      // the body at the top-left, that shrunk content reads as left-aligned
+      // instead of centered. Force it to take the full width here once,
+      // rather than in every screen that happens to use a shrink-wrapping
+      // layout.
+      body: SafeArea(
+        bottom: false,
+        child: SizedBox(width: double.infinity, child: body),
+      ),
       floatingActionButton: floatingActionButton,
       bottomNavigationBar: const AdBannerPlaceholder(),
     );
