@@ -49,6 +49,8 @@
   "questionInputLabel": "Qual é a sua pergunta?",
   "shuffleButton": "Embaralhar",
   "shufflingIndicatorText": "Embaralhando...",
+  "updateAvailableNotice": "Nova versão {version} disponível.",
+  "updateAvailableAction": "Ver",
   "interpretWithAiButton": "Copiar e abrir IA",
   "copyPromptButton": "Copiar prompt para IA",
   "cardDetailPreviousButton": "Carta anterior",

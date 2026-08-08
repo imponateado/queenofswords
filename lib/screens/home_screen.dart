@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/update_checker_service.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/tarot_card_widget.dart';
 import 'about_tarot_screen.dart';
@@ -9,8 +12,48 @@ import 'history_screen.dart';
 import 'settings_screen.dart';
 import 'spread_selection_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkForUpdate());
+  }
+
+  Future<void> _checkForUpdate() async {
+    try {
+      final info = await PackageInfo.fromPlatform();
+      final update = await UpdateCheckerService().checkForUpdate(
+        info.version,
+      );
+      if (!mounted || update == null) return;
+
+      final l10n = AppLocalizations.of(context)!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.updateAvailableNotice(update.version)),
+          action: SnackBarAction(
+            label: l10n.updateAvailableAction,
+            onPressed: () => launchUrl(
+              Uri.parse(update.releaseUrl),
+              mode: LaunchMode.externalApplication,
+            ),
+          ),
+          duration: const Duration(seconds: 8),
+        ),
+      );
+    } catch (_) {
+      // Offline, plugin unavailable (e.g. under test), or any other
+      // failure — this is a best-effort check, never worth bothering the
+      // user about.
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
