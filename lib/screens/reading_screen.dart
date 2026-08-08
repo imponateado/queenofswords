@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../data/spreads_repository.dart';
@@ -11,7 +12,9 @@ import '../models/tarot_card.dart';
 import '../providers/deck_provider.dart';
 import '../providers/reading_provider.dart';
 import '../providers/settings_provider.dart';
+import '../screens/reading_card_pager_screen.dart';
 import '../services/ai/ai_result.dart';
+import '../services/ai/prompt_builder.dart';
 import '../utils/moon_phase.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/provider_selector.dart';
@@ -41,6 +44,9 @@ class _ReadingScreenState extends State<ReadingScreen> {
   @override
   void initState() {
     super.initState();
+    // The provider outlives this screen, so clear any reading left over from
+    // a previous visit before starting a new one.
+    context.read<ReadingProvider>().reset();
     // Preload the deck in the background so tapping "shuffle" feels instant —
     // the actual draw/shuffle only happens when the user asks for it.
     WidgetsBinding.instance.addPostFrameCallback(
@@ -84,15 +90,9 @@ class _ReadingScreenState extends State<ReadingScreen> {
 
   void _startOver() {
     context.read<ReadingProvider>().reset();
-    _questionController.clear();
-    setState(() {
-      _shuffling = false;
-      _revealed = false;
-      _significatorCard = null;
-      _significatorStepDone = false;
-      _cleansingTaps = 0;
-      _cleansingStepDone = false;
-    });
+    // Back to the spread selection screen so the user picks how many cards
+    // the next reading should have.
+    Navigator.of(context).pop();
   }
 
   @override
@@ -149,6 +149,17 @@ class _ReadingScreenState extends State<ReadingScreen> {
                 spread: widget.spread,
                 drawnCards: reading.drawnCards,
                 isRevealed: _revealed,
+                onCardTap: _revealed
+                    ? (drawn) => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ReadingCardPagerScreen(
+                            spread: widget.spread,
+                            drawnCards: reading.drawnCards,
+                            initialIndex: reading.drawnCards.indexOf(drawn),
+                          ),
+                        ),
+                      )
+                    : null,
               ),
               const SizedBox(height: 20),
               if (!_revealed)
@@ -452,7 +463,7 @@ class _InterpretationSection extends StatelessWidget {
           onChanged: (p) => context.read<SettingsProvider>().selectProvider(p),
         ),
         const SizedBox(height: 12),
-        if (status == InterpretationStatus.idle)
+        if (status == InterpretationStatus.idle) ...[
           FilledButton.icon(
             icon: const Icon(Icons.auto_fix_high),
             label: Text(l10n.interpretWithAiButton),
@@ -468,6 +479,29 @@ class _InterpretationSection extends StatelessWidget {
               orientationReversed: l10n.promptOrientationReversed,
             ),
           ),
+          TextButton.icon(
+            icon: const Icon(Icons.copy),
+            label: Text(l10n.copyPromptButton),
+            onPressed: () async {
+              final prompt = PromptBuilder.build(
+                reading,
+                positionLabel: (position) =>
+                    positionLabel(context, reading.spread, position),
+                noQuestionText: l10n.promptNoQuestionText,
+                questionIntro: l10n.promptQuestionIntro,
+                cardsIntro: l10n.promptCardsIntro,
+                closingQuestion: l10n.promptClosingQuestion,
+                orientationUpright: l10n.promptOrientationUpright,
+                orientationReversed: l10n.promptOrientationReversed,
+              );
+              await Clipboard.setData(ClipboardData(text: prompt));
+              if (!context.mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(l10n.aiClipboardCopiedNotice)),
+              );
+            },
+          ),
+        ],
         if (status == InterpretationStatus.loading)
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 16),

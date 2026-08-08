@@ -187,9 +187,21 @@
   "@shufflingIndicatorText": {
     "description": "Label shown under the shuffle animation while the cards are being drawn."
   },
-  "interpretWithAiButton": "Interpret with AI",
+  "interpretWithAiButton": "Copy and open AI",
   "@interpretWithAiButton": {
     "description": "Button label to request an AI interpretation of the reading."
+  },
+  "copyPromptButton": "Copy prompt for AI",
+  "@copyPromptButton": {
+    "description": "Secondary, low-emphasis button label that copies the AI prompt to the clipboard without opening anything."
+  },
+  "cardDetailPreviousButton": "Previous card",
+  "@cardDetailPreviousButton": {
+    "description": "Accessibility label for the arrow that navigates to the previous card in the full-screen card viewer."
+  },
+  "cardDetailNextButton": "Next card",
+  "@cardDetailNextButton": {
+    "description": "Accessibility label for the arrow that navigates to the next card in the full-screen card viewer."
   },
   "aiClipboardCopiedNotice": "Prompt copied — paste it into the AI app/site that opened.",
   "@aiClipboardCopiedNotice": {
